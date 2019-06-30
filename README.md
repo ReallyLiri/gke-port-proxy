@@ -2,6 +2,11 @@
 
 This docker image is used to expose an internal Google Kubernetes Engine port from a deployed cluster using the builtin port forwarding.
 
+## Docker Image
+
+[![](https://images.microbadger.com/badges/version/reallyliri/gke-port-proxy:1.0.svg)](https://microbadger.com/images/reallyliri/gke-port-proxy:1.0 "Get your own version badge on microbadger.com")
+
+Available on [Dockerhub](https://hub.docker.com/r/reallyliri/gke-port-proxy) or by pulling `reallyliri/gke-port-proxy:1.0`.
 ## Build
 
 `docker build -t gke-port-proxy .`
