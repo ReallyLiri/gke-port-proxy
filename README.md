@@ -4,7 +4,7 @@ This docker image is used to expose an internal Google Kubernetes Engine port fr
 
 ## Docker Image
 
-[![](https://images.microbadger.com/badges/version/reallyliri/gke-port-proxy:1.0.svg)](https://microbadger.com/images/reallyliri/gke-port-proxy:1.0 "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/reallyliri/gke-port-proxy:latest.svg)](https://microbadger.com/images/reallyliri/gke-port-proxy:latest "Get your own version badge on microbadger.com")
 
 Available on [Dockerhub](https://hub.docker.com/r/reallyliri/gke-port-proxy) or by pulling `reallyliri/gke-port-proxy:1.0`.
 ## Build
@@ -26,6 +26,7 @@ Other required parameters:
 * `GCLOUD_PROJECT`: the internal name of your project in Google Cloud
 * `GCLOUD_ZONE` or `GCLOUD_REGION`: you need to supply a location to connect to GKE, you can use either a zone or a region.
 * `CLUSTER`: the name of your GKE cluster
+* `NAMESPACE`: the cluster namespace in which the service is defined
 * `SERVICE_NAME`: the name of the service to forward
 
 ## Run
@@ -40,6 +41,7 @@ export GCLOUD_ZONE=europe-west1-b
 export GCLOUD_REGION=us-east4
 export GCLOUD_API_BASE64="..."
 export CLUSTER=my-cluster-name
+export NAMESPACE=default
 export SERVICE_NAME=my-svc-name
 
 docker run -d \
@@ -53,6 +55,7 @@ docker run -d \
     -e GCLOUD_REGION=$GCLOUD_REGION \
     -e GCLOUD_API_BASE64=$GCLOUD_API_BASE64 \
     -e CLUSTER=$CLUSTER \
+    -e NAMESPACE=$NAMESPACE \
     -e SERVICE_NAME=$SERVICE_NAME \
     gke-port-proxy
 ```

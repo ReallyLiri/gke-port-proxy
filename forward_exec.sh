@@ -19,4 +19,4 @@ gcloud auth configure-docker --quiet
 gcloud container clusters get-credentials $CLUSTER \
     || { echo "No matching cluster, entering infinite loop"; exit 1; }
 
-kubectl port-forward svc/$SERVICE_NAME $TARGET_PORT:$SOURCE_PORT
+kubectl port-forward -n $NAMESPACE svc/$SERVICE_NAME $TARGET_PORT:$SOURCE_PORT
